@@ -1,0 +1,11 @@
+id = "comb_lock"
+name = "Comb lock"
+type = "module"
+version = "1.1.0"
+category = "Modules"
+description = "FFC-100 comb, GPS OPL #1 (f_rep), SLICE-FPGA-II (f_ceo), the comb lock sequence and the lock watchdog."
+author = "Dave Smith"
+requires = ["pyserial>=3.5", "scipy>=1.7"]
+optional = []
+vescentcomb = ""
+default_enabled = true

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vescentcomb"
+version = "0.1.0"
+description = "Vescent Comb Control: FFC-100, GPS OPL #1, SLICE-FPGA-II and the comb locking process"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "packaging",
+    "tomli; python_version < '3.11'",
+    "PySide6>=6.5",
+    "pyqtgraph>=0.13",
+    "pyserial>=3.5",
+    "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+vescent-comb = "vescentcomb.gui.app:main"
+vescent-comb-cli = "vescentcomb.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["vescentcomb*"]
+
+[tool.setuptools.package-data]
+"vescentcomb" = ["addons/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "vescentcomb/addons"]
+addopts = "--import-mode=importlib -p no:cacheprovider"
